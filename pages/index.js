@@ -72,6 +72,33 @@ export default function Home() {
               </div>
             </div>
           </section>
+          <section className="bg-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 transition-transform hover:scale-[1.02]">
+  <h2 className="text-2xl font-semibold mb-4 text-green-400">AI Analysis Results</h2>
+
+  {/* ...existing score and analysis... */}
+
+  {analysis && (
+    <button
+      onClick={handleExportPDF}
+      className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm shadow-md transition"
+    >
+      Export as PDF
+    </button>
+  )}
+
+  {/* Suggestions Section */}
+  {suggestions.length > 0 && (
+    <section className="mt-8 bg-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-700 transition-transform hover:scale-[1.02]">
+      <h2 className="text-2xl font-semibold mb-4 text-yellow-400">AI Suggestions & Improvements</h2>
+
+      <ul className="list-disc list-inside text-gray-300 text-sm space-y-2">
+        {suggestions.map((tip, index) => (
+          <li key={index}>{tip}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+</section>
 
           {/* Call To Action */}
           <section className="text-center">

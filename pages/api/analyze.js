@@ -47,6 +47,17 @@ ${code}
 
     const response = result.response;
     const text = response.text();
+    // After: const text = response.text();
+
+// 1. Generate a random score (for now)
+const score = Math.floor(Math.random() * (100 - 60 + 1)) + 60; // Random score between 60 and 100
+
+// 2. Send the score in the response
+res.status(200).json({ 
+  analysis: text,
+  score: score,
+});
+
 
     res.status(200).json({ analysis: text });
   } catch (error) {
